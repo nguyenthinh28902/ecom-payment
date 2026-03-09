@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Ecom.PaymentService.Api/Ecom.PaymentService.Api.csproj" />
+  <Project Path="Ecom.PaymentService.Application/Ecom.PaymentService.Application.csproj" />
+  <Project Path="Ecom.PaymentService.Core/Ecom.PaymentService.Core.csproj" />
+  <Project Path="Ecom.PaymentService.Infrastructure/Ecom.PaymentService.Infrastructure.csproj" />
+</Solution>
