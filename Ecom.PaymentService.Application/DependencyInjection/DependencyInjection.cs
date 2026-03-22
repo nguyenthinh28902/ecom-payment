@@ -1,4 +1,5 @@
-﻿using Ecom.PaymentService.Application.Interface.Auth;
+﻿using Ecom.PaymentService.Application.AutoMapper;
+using Ecom.PaymentService.Application.Interface.Auth;
 using Ecom.PaymentService.Application.Service.Auth;
 using Ecom.PaymentService.Infrastructure.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +14,11 @@ namespace Ecom.PaymentService.Application.DependencyInjection
         {
             services.AddDependencyInjectionInfrastructure(configuration);
             services.AddStackExchangeRedis(configuration);
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<TransactionMapper>();
+                cfg.AddProfile<PaymentMappingProfile>();
+            });
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ICurrentCustomerService, CurrentCustomerService>();
             services.AddScoped<IBaseService, BaseService>();
